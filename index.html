@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dino Run</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <link rel="stylesheet" href="TemplateData/style.css" />
+
+    <meta property="og:title" content="Dino Run" />
+    <meta
+      property="og:description"
+      content="공룡 달리기 웹 게임을 플레이하세요!"
+    />
+    <meta property="og:image" content="TemplateData/og.png" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="/">🦖 Dino Run 🦖</a>
+      </div>
+    </nav>
+
+    <div class="container root-container">
+      <!-- Game Container -->
+      <div class="game-container" data-aos="fade-up" data-aos-duration="1000">
+        <div id="unity-container" class="unity-desktop">
+          <canvas id="unity-canvas" tabindex="-1"></canvas>
+          <div id="unity-loading-bar">
+            <div id="unity-logo"></div>
+            <div id="unity-progress-bar-empty">
+              <div id="unity-progress-bar-full"></div>
+            </div>
+          </div>
+          <div id="unity-warning"></div>
+        </div>
+      </div>
+
+      <div
+        class="score-submit-container text-center my-4"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h2 class="mb-3">🏅 Submit Your Score 🏅</h2>
+        <form class="score-form" class="row g-3 justify-content-center">
+          <div class="col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              id="player-name"
+              placeholder="이름을 입력해주세요."
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">등록</button>
+        </form>
+      </div>
+
+      <!-- Rankings Section -->
+      <div
+        class="ranking-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h2 class="mb-4">🏆 Top 10 Rankings 🏆</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Player</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-body">
+              <!-- Rankings will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="scoreModal"
+      tabindex="-1"
+      aria-labelledby="scoreModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scoreModalLabel">알림</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="scoreModalBody">
+            <!-- 메시지가 동적으로 변경됨 -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="scoreModalButton"
+              data-bs-dismiss="modal"
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="TemplateData/index.js"></script>
+  </body>
+</html>
